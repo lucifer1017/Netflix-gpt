@@ -11,7 +11,10 @@
 - Implemented Signup/ Sign In functionality
 - Created Redux Store with userSlice
 - Implemented the signout feature
-- 
+- BugFix: Signed up user displayName and photoURL update
+- BugFix: If user is not logged in, redirect /browse page to login page and vice versa.
+- Added harcoded values to constants file
+
 
 
 # Features 

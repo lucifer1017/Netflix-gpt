@@ -4,11 +4,11 @@ import Header from './Header'
 import { checkValidData } from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { NETFLIX_BG_LOGO, USER_AVATAR } from '../utils/constants';
 const Login = () => {
-    const navigate = useNavigate();
+
     const dispatch = useDispatch();
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -30,13 +30,16 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
+
                     updateProfile(user, {
                         displayName: name.current.value,
-                        photoURL: "https://avatars.githubusercontent.com/u/149046534?v=4"
+                        photoURL: USER_AVATAR
+
                     }).then(() => {
-                        const { uid, email, displayName } = auth.currentUser;
-                        dispatch(addUser({ uid: uid, email: email, displayName: displayName }))
-                        navigate('/browse');
+                        const { uid, email, displayName, photoURL } = auth.currentUser;
+
+                        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }))
+
                     }).catch((error) => {
                         setErrorMessage(error.message);
                     });
@@ -53,9 +56,7 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    // console.log(user);
-                    navigate('/browse');
-                    // ...
+
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -71,7 +72,7 @@ const Login = () => {
         <div>
             <Header />
             <div className='absolute'>
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/a56dc29b-a0ec-4f6f-85fb-50df0680f80f/2f8ae902-8efe-49bb-9a91-51b6fcc8bf46/IN-en-20240617-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+                <img src={NETFLIX_BG_LOGO}
                     alt="bglogo" />
             </div>
             <form className=' text-white absolute p-12 bg-black w-3/12  my-40 mx-auto right-0 left-0 rounded-md bg-opacity-80'
