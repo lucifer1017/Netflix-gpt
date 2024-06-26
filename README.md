@@ -14,6 +14,17 @@
 - BugFix: Signed up user displayName and photoURL update
 - BugFix: If user is not logged in, redirect /browse page to login page and vice versa.
 - Added harcoded values to constants file
+- Registered TMDB API and got access token
+- Got Data from TMDB API
+- Created Movie slice
+- Updated our Redux store with movies data
+- Fetched Data for Trailer video
+- Embedded YouTube video and used it with autoplay and mute
+- Beautification of MainContainer with Tailwind
+- Built SecondaryContainer
+- Built Movie List and Movie Card
+- Created Custom hooks for Data fetching and used them Inside Browse Page
+- Beautification of Browse page using Tailwind
 
 
 
