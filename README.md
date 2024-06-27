@@ -25,7 +25,9 @@
 - Built Movie List and Movie Card
 - Created Custom hooks for Data fetching and used them Inside Browse Page
 - Beautification of Browse page using Tailwind
-
+- GPT Search Page
+- GPT Search Bar
+- Added Multi-Lingual Feature in GPT search
 
 
 # Features 
